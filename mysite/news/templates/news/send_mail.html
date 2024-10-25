@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}{{ title }}{% endblock %}</title>
+
+{% block content %}
+<div class="col-md-9">
+    <h1>Отправка сообщения администрации: </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submint" class="btn btn-primary btn-block">Отправить</button>
+    </form>
+</div>
+{% endblock %}

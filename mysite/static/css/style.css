@@ -1,0 +1,8 @@
+body {
+    background-image: url('media/backgraund.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.errorlist{
+    color: red;
+}

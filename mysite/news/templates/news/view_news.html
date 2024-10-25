@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<title>{% block title %}{{ news.title }}{% endblock %}</title>
+
+{% block content %}
+<div class="col-md-9">
+    <div class="card mb-3">
+        <div class="card-header">
+            Категория: <a href="{{ news.category.get_absolute_url }}">{{ news.category }}</a>
+        </div>
+        <div class="card-body">
+            {% if news.photo %}
+            <img src="{{ news.photo.url }}" alt="" width="150" class="mr-3">
+            {% else %}
+            <img src="{% static 'media/noimage_detail.png' %}" alt="" width="150" class="mr-3">
+            {% endif %}
+            <h5 class="card-title">{{ news.title }}</h5>
+            <p class="card-text">{{ news.content }}</p>
+            <a href="{{ news.category.get_absolute_url }}" class="btn btn-primary">Назад в категорию</a>
+        </div>
+        <div class="card-footer text-muted">
+            {{ news.created_at|date:'Y-m-d H:i:s' }}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+

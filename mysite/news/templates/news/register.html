@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}{{ title }}{% endblock %}</title>
+
+{% block content %}
+<div class="col-md-9">
+    <h1>Регистрация:</h1>
+    <div class="alert alert-success" role="alert" id="error_login" style="display: none;"></div>
+    <form method="POST" id="form_ajax">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button disabled='disabled' type="submit" class="btn btn-primary btn-block" id="btn">Зарегистрироваться
+        </button>
+    </form>
+
+</div>
+{% endblock %}
